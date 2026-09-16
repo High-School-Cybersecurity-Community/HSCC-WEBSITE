@@ -17,10 +17,6 @@
   }
 }
 
-* {
-  border-radius: 1rem ;
-}
-
 body {
   background-color: var(--background);
   width: min(40rem, 90vw);
@@ -37,17 +33,18 @@ a {
   color: var(--text);
   text-decoration-color: var(--accent);
   transition-duration: 0.2s;
+  display: inline-block;
 }
 
 a:hover {
   color: var(--accent);
   transform: translateY(-0.2em);
-  display: inline-block;
 }
 
 img {
   max-width: min(40rem, 90vw);
   height: auto;
+  border-radius: 1rem;
 }
 
 header {
@@ -58,12 +55,22 @@ header {
     display: flex;
     justify-content: space-between;
   }
+
+  img {
+    max-width: 6rem;
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--container-background);
 }
 
 footer {
   padding: 1rem;
   margin: 1rem 0px 1rem 0px;
   background-color: var(--container-background);
+  border-radius: 1rem;
 
   display: flex;
   flex-direction: row;
@@ -84,24 +91,54 @@ footer {
   }
 }
 
-/* Special Styles */
-.width-outside-parent {
-  width: calc(100% + 20rem);
-  margin-left: -10rem;
-  margin-right: -10rem;
-  display: flex;
+/* Detail grid for CTF info */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin: 1.5rem 0;
+}
 
-  >* {
-    width: 50%;
+.detail-item {
+  background-color: var(--container-background);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+
+  h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.85em;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  p {
+    margin: 0;
+    font-weight: 500;
   }
 }
 
-@media (max-width: 40rem) {
-  .width-outside-parent {
-    all: unset;
-    >* {
-      width: 100%;
-    }
+@media (max-width: 30rem) {
+  .detail-grid {
+    grid-template-columns: 1fr;
   }
+}
+
+/* Sponsors */
+.sponsor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1rem 0;
+
+  img {
+    max-width: 10rem;
+    max-height: 4rem;
+    object-fit: contain;
+  }
+}
+
+.subtle {
+  font-size: 0.9em;
+  opacity: 0.75;
 }
