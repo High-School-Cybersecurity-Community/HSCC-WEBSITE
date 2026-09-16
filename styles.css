@@ -1,0 +1,107 @@
+/* ibm plex sans font */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --accent: oklch(0.726 0.174 338.433);
+  --text: oklch(0.435 0.043 279.325);
+  --background: oklch(0.958 0.006 264.532);
+  --container-background: oklch(0.933 0.009 264.521);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: oklch(0.870 0.075 336.304);
+    --text: oklch(0.879 0.043 272.277);
+    --background: oklch(0.243 0.030 283.911);
+    --container-background: oklch(0.216 0.025 284.065);
+  }
+}
+
+* {
+  border-radius: 1rem ;
+}
+
+body {
+  background-color: var(--background);
+  width: min(40rem, 90vw);
+  color: var(--text);
+  margin: auto;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* General styles */
+a {
+  color: var(--text);
+  text-decoration-color: var(--accent);
+  transition-duration: 0.2s;
+}
+
+a:hover {
+  color: var(--accent);
+  transform: translateY(-0.2em);
+  display: inline-block;
+}
+
+img {
+  max-width: min(40rem, 90vw);
+  height: auto;
+}
+
+header {
+  margin: 1rem 0px 1rem 0px;
+  nav {
+    font-size: 1.5em;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+footer {
+  padding: 1rem;
+  margin: 1rem 0px 1rem 0px;
+  background-color: var(--container-background);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  * {
+    flex: 1;
+  }
+
+  #footer-left * {
+    margin: 0px;
+  }
+
+  nav {
+    height: 100%;
+    text-align: right;
+  }
+}
+
+/* Special Styles */
+.width-outside-parent {
+  width: calc(100% + 20rem);
+  margin-left: -10rem;
+  margin-right: -10rem;
+  display: flex;
+  gap: 1rem;
+
+  >* {
+    width: 50%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .width-outside-parent {
+    all: unset;
+    >* {
+      width: 100%;
+    }
+  }
+}
